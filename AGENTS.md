@@ -6,7 +6,7 @@ Personal portfolio website for GitHub user **0z4c4** (previously dbazc).
 - **URL**: https://0z4c4.github.io/portfolio/
 - **Repo**: https://github.com/0z4c4/portfolio.git
 - **Stack**: React 19 + TypeScript + Vite 8 + React Router 7
-- **Package manager**: pnpm (v11.18.0)
+- **Package manager**: pnpm (v12.22.0)
 - **Deploy**: `gh-pages` to GitHub Pages (branch: `gh-pages`)
 
 ## Commands
