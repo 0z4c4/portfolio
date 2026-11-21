@@ -4,6 +4,13 @@ import { ArrowRightIcon } from "./Icons";
 import { whatsappUrl } from "../data/contact";
 import "./Hero.css";
 
+const stats = [
+  { value: "+5", label: "años de experiencia" },
+  { value: "+20", label: "proyectos completados" },
+  { value: "+40", label: "clientes satisfechos" },
+  { value: "100%", label: "compromiso con cada trabajo" },
+];
+
 const rotatingWords = ["CREAR", "DESARROLLAR", "EDITAR", "REPARAR"];
 
 const techIcons = [
@@ -60,8 +67,8 @@ export default function Hero() {
         </p>
 
         <div className="hero__actions">
-          <Link to="/proyectos" className="hero__btn hero__btn--primary">
-            Ver mis proyectos
+          <Link to="/servicios" className="hero__btn hero__btn--primary">
+            Ver mis servicios
             <ArrowRightIcon size={18} />
           </Link>
           <a
@@ -82,6 +89,15 @@ export default function Hero() {
               </span>
             ))}
           </div>
+        </div>
+
+        <div className="hero__stats">
+          {stats.map((stat) => (
+            <div key={stat.label} className="hero__stat">
+              <span className="hero__stat-value">{stat.value}</span>
+              <span className="hero__stat-label">{stat.label}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

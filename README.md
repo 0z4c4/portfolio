@@ -1,18 +1,54 @@
-# React + Vite
+# Ozaca · Portafolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portafolio personal construido con React 19 + TypeScript + Vite 8 + React Router
+7. Publicado en https://0z4c4.github.io/portfolio/.
 
-Currently, two official plugins are available:
+## Rutas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- `/` — Inicio
+- `/servicios` — Áreas en las que trabajo
+- `/proyectos` — Proyectos y piezas reales
+- `/certificados` — Formación y certificaciones
+- `/sobre-mi` — Perfil
 
-## React Compiler
+## Stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- React 19.3.1, TypeScript 7.0.2, Vite 8.3.8
+- pnpm 12.22.0 (`packageManager` fijado en `package.json`)
+- React Router 7 con `BrowserRouter basename="/portfolio"`
+- React Compiler vía `@rolldown/plugin-babel`
 
-Note: This will impact Vite dev & build performances.
+## Scripts
 
-## Expanding the ESLint configuration
+```bash
+pnpm install --frozen-lockfile
+pnpm dev        # desarrollo, abrir http://localhost:5173/portfolio/
+pnpm typecheck  # TypeScript only
+pnpm build      # typecheck + build
+pnpm preview    # previsualizar build
+pnpm deploy     # publicar en GitHub Pages (rama gh-pages)
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Contenido
+
+- 9 proyectos con imágenes WebP y videos WebM de muestra (`src/data/projects.ts`).
+- 16 certificados en WebP (`src/data/certificates.ts`).
+- 7 marcas en el marquee de inicio (`src/data/logos.ts`).
+- Modal de proyectos con navegación por teclado y soporte para video.
+
+## Optimización de medios
+
+Las imágenes se sirven en WebP y los videos en WebM (VP9/Opus), con clips de
+muestra de 10 segundos para mantener el sitio liviano. Los archivos originales
+(MP4/PNG/PDF de alta resolución) se conservan en `_originals/`, excluido del
+control de versiones y del despliegue.
+
+Las certificaciones servidas son WebP, generadas desde los PDF/PNG guardados en
+`_originals/certificados-src/`.
+
+## Nota de rutas
+
+`base` es `/portfolio` y las URLs de assets en `src/data/*.ts` son absolutas
+(`/portfolio/...`). Vite no las reescribe: si se cambia el nombre del repo o el
+`base`, hay que actualizar esos literales. `public/404.html` redirige las rutas
+directas de GitHub Pages al `BrowserRouter` de la app.

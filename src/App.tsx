@@ -4,8 +4,10 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
+import Services from "./pages/Services";
 import Proyectos from "./pages/Proyectos";
 import Certificados from "./pages/Certificados";
+import SobreMi from "./pages/SobreMi";
 
 function FadeRoute({ children }: { children: React.ReactNode }) {
   const { pathname } = useLocation();
@@ -34,8 +36,11 @@ export default function App() {
       <FadeRoute>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/servicios" element={<Services />} />
           <Route path="/proyectos" element={<Proyectos />} />
           <Route path="/certificados" element={<Certificados />} />
+          <Route path="/sobre-mi" element={<SobreMi />} />
+          <Route path="*" element={<Home />} />
         </Routes>
       </FadeRoute>
       <Footer />

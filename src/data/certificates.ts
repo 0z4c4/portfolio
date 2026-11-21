@@ -32,7 +32,7 @@ export const certificates: Certificate[] = [
   },
   {
     id: "sena-english-1",
-    title: "English Dot Works",
+    title: "English Dot Works (Inglés)",
     issuer: "SENA",
     year: "2018",
     image: `${base}/Sena/Enlgish Dot Works/Certificado.webp`,

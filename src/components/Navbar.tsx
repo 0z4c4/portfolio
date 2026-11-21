@@ -6,8 +6,10 @@ import "./Navbar.css";
 
 const navLinks = [
   { label: "Inicio", to: "/" },
+  { label: "Servicios", to: "/servicios" },
   { label: "Proyectos", to: "/proyectos" },
   { label: "Certificados", to: "/certificados" },
+  { label: "Sobre mí", to: "/sobre-mi" },
 ];
 
 export default function Navbar() {

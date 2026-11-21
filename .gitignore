@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 .certificados-src
+_originals/
 
 # Editor directories and files
 .vscode/*

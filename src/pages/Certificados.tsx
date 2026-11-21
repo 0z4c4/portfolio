@@ -21,7 +21,7 @@ export default function Certificados() {
   }, [selected]);
 
   return (
-    <main className="section">
+    <main className="certificates section">
       <div className="certificates__inner container">
         <div className="certificates__header">
           <span className="section-label">Certificados</span>

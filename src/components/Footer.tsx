@@ -5,8 +5,10 @@ import "./Footer.css";
 
 const quickLinks = [
   { label: "Inicio", to: "/" },
+  { label: "Servicios", to: "/servicios" },
   { label: "Proyectos", to: "/proyectos" },
   { label: "Certificados", to: "/certificados" },
+  { label: "Sobre mí", to: "/sobre-mi" },
 ];
 
 const socials = [
@@ -23,9 +25,8 @@ export default function Footer() {
           <div className="footer__brand">
             <Link to="/" className="footer__logo">Oza<span>ca</span></Link>
             <p className="footer__text">
-              Desarrollo web, diseño gráfico, fotografía, producción
-              audiovisual, videovigilancia e instalaciones generales. Trabajo
-              cuidado y trato directo.
+              Desarrollo web, diseño, producción audiovisual, datos e
+              infraestructura. Trabajo cuidado y trato directo.
             </p>
           </div>
           <nav className="footer__nav" aria-label="Links rápidos">
