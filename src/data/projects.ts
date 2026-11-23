@@ -3,6 +3,7 @@ export interface Project {
   title: string;
   category: string;
   description: string;
+  concepts?: string[];
   images?: string[];
   videos?: string[];
   audio?: string;
@@ -16,8 +17,8 @@ export const projects: Project[] = [
     id: "donde-juanita",
     title: "Donde Juanita",
     category: "Sitio web y administración",
-    description:
-      "Diseñé y administro el sitio de Donde Juanita, cafetería temática en Santa Cruz de la Sierra: diseño, contenidos y actualización permanente.",
+    description: "Diseño y administración del sitio web de la cafetería.",
+    concepts: ["Diseño web", "Desarrollo", "Contenidos", "Administración"],
     images: ["/portfolio/proyectos/dondejuanita/caratula.webp"],
     url: "https://www.dondejuanita.com/",
   },
@@ -25,16 +26,16 @@ export const projects: Project[] = [
     id: "caju",
     title: "Cajú",
     category: "Branding e identidad",
-    description:
-      "Identidad visual y propuesta de logotipo para Cajú, con una dirección de marca coherente y aplicable a distintos formatos.",
+    description: "Identidad visual y logotipo para Cajú.",
+    concepts: ["Branding", "Logotipo", "Identidad visual"],
     images: ["/portfolio/proyectos/Cajú/diseño_marca_cajú.webp"],
   },
   {
     id: "club-social",
     title: "Club Social 24 de Septiembre",
     category: "Diseño gráfico",
-    description:
-      "Invitación digital para la cena de confraternización del Club Social 24 de Septiembre, cuidando jerarquía y comunicación.",
+    description: "Invitación digital para su cena de confraternización.",
+    concepts: ["Diseño gráfico", "Invitación digital", "Eventos"],
     images: [
       "/portfolio/proyectos/Club Social 24 De Septiembre/invitacion_cena_confraternizacion.webp",
     ],
@@ -43,8 +44,8 @@ export const projects: Project[] = [
     id: "insertec",
     title: "Insertec LTDA",
     category: "Audiovisual y marca",
-    description:
-      "Piezas audiovisuales FMS y logotipo para Insertec LTDA, orientados a comunicación corporativa y presentación de servicios.",
+    description: "Videos FMS y logotipo para Insertec LTDA.",
+    concepts: ["Audiovisual", "Logotipo", "Comunicación corporativa"],
     videos: [
       "/portfolio/proyectos/Insertec/fms_1_preview.webm",
       "/portfolio/proyectos/Insertec/fms_2_preview.webm",
@@ -56,8 +57,8 @@ export const projects: Project[] = [
     id: "milter",
     title: "Milter",
     category: "Branding y diseño para redes",
-    description:
-      "Campañas preventivas, flyers, letreros, mural, mockups de poleras y materiales de staff para conciertos de Milter, con una línea visual coherente para redes sociales y punto de venta.",
+    description: "Piezas gráficas y material de staff para conciertos.",
+    concepts: ["Fotografía", "Diseño gráfico", "Logística/Staff", "Redes sociales"],
     images: [
       "/portfolio/proyectos/Milter/campaña_preventiva_colegios.webp",
       "/portfolio/proyectos/Milter/campaña_preventiva_universidades.webp",
@@ -89,8 +90,8 @@ export const projects: Project[] = [
     id: "adonai",
     title: "Adonai",
     category: "Diseño gráfico y marca",
-    description:
-      "Logotipo, consultorio y publicidad para redes de Adonai, con piezas aplicadas a distintos soportes y formatos.",
+    description: "Logotipo, consultorio y publicidad para redes.",
+    concepts: ["Branding", "Diseño gráfico", "Redes sociales", "Publicidad"],
     images: [
       "/portfolio/proyectos/Adonai/aplicado_vista_exterior.webp",
       "/portfolio/proyectos/Adonai/aplicado_vista_interior.webp",
@@ -112,8 +113,8 @@ export const projects: Project[] = [
     id: "siguelo",
     title: "Siguelo",
     category: "Plataforma y branding",
-    description:
-      "Identidad, tarjetas, banner y videos de la plataforma de rastreo Siguelo, mostrando el producto y su uso en escenarios reales.",
+    description: "Identidad, tarjetas y videos de la plataforma.",
+    concepts: ["Branding", "Audiovisual", "Piezas impresas", "Plataforma"],
     videos: [
       "/portfolio/proyectos/Siguelo/video_comercial_preview.webm",
       "/portfolio/proyectos/Siguelo/video_explicacion_reporte_preview.webm",
@@ -133,8 +134,8 @@ export const projects: Project[] = [
     id: "utopia",
     title: "Utopía",
     category: "Branding e identidad",
-    description:
-      "Logotipo e invitación digital para Utopía, con una línea visual elegante orientada a comunicación de eventos.",
+    description: "Logotipo e invitación digital para Utopía.",
+    concepts: ["Branding", "Logotipo", "Invitación digital"],
     images: [
       "/portfolio/proyectos/Utopía/invitacion_cena_cumpleaños.webp",
     ],
@@ -143,8 +144,8 @@ export const projects: Project[] = [
     id: "velas-miel",
     title: "Velas Miel",
     category: "Fotografía de producto",
-    description:
-      "Fotografía de producto para las velas artesanales Velas Miel, mostrando tamaños, acabados y presentaciones.",
+    description: "Fotografía de producto para velas artesanales.",
+    concepts: ["Fotografía", "Producto", "Dirección de arte"],
     images: [
       "/portfolio/proyectos/Velas Miel/velas.webp",
       "/portfolio/proyectos/Velas Miel/velas_2.webp",
@@ -157,8 +158,8 @@ export const projects: Project[] = [
     id: "full-assistance",
     title: "Full Assistance",
     category: "Diseño gráfico",
-    description:
-      "Tarjeta de presentación digital para Full Assistance, con una composición limpia orientada a comunicación profesional.",
+    description: "Tarjeta de presentación digital.",
+    concepts: ["Diseño gráfico", "Tarjeta digital", "Comunicación"],
     images: [
       "/portfolio/proyectos/Full Assistance/tarjeta_presentacion_digital.webp",
     ],

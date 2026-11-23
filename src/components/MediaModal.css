@@ -159,17 +159,28 @@
 .media-modal__caption {
   display: flex;
   width: 100%;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
   padding: 16px 4px 0;
   color: var(--text);
 }
 
-.media-modal__caption div {
+.media-modal__info {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
+}
+
+.media-modal__description {
+  max-width: 62ch;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.media-modal__caption .concepts {
+  margin-top: 4px;
 }
 
 .media-modal__category {

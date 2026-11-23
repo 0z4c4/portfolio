@@ -110,10 +110,13 @@ React + Router + Home only. Unknown paths fall back to Home.
 - **Projects**: all 10 live on `/proyectos`; the Home stays intentionally short.
   Projects with `url` (e.g. Donde Juanita) open the live site in a new tab
   instead of the media modal.
+- **Concept pills**: cards show short `.concept` pills (`Project.concepts`) instead
+  of a clamped paragraph, so nothing gets cut off.
 - **Project modal**: images/videos with arrow-key nav, Esc and a thumbnail strip
-  to jump directly to any piece (active thumb auto-centers). The stage has no
-  border or background; the `<img>`/`<video>` keeps its own ratio via
-  `max-width`/`max-height` (plain CSS, no JS measuring).
+  to jump directly to any piece (active thumb auto-centers). It repeats the short
+  description and the concept pills. The stage has no border or background; the
+  `<img>`/`<video>` keeps its own ratio via `max-width`/`max-height` (plain CSS,
+  no JS measuring).
 - **Logo marquee**: 7 brands, label-free, slower and smaller; it never pauses.
 - **Certificate modal**: image zoom with backdrop blur.
 - **Reduced motion**: global `prefers-reduced-motion` override in `index.css`.

@@ -17,6 +17,8 @@ interface MediaModalProps {
   initialIndex: number;
   title: string;
   category: string;
+  description?: string;
+  concepts?: string[];
   onClose: () => void;
 }
 
@@ -25,6 +27,8 @@ export default function MediaModal({
   initialIndex,
   title,
   category,
+  description,
+  concepts,
   onClose,
 }: MediaModalProps) {
   const [index, setIndex] = useState(initialIndex);
@@ -163,11 +167,23 @@ export default function MediaModal({
         )}
 
         <div className="media-modal__caption">
-          <div>
+          <div className="media-modal__info">
             <span className="media-modal__category">{category}</span>
             <strong className="media-modal__title">
               {item.caption ?? title}
             </strong>
+            {description && (
+              <p className="media-modal__description">{description}</p>
+            )}
+            {concepts && concepts.length > 0 && (
+              <div className="concepts">
+                {concepts.map((concept) => (
+                  <span className="concept" key={concept}>
+                    {concept}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
           {hasMultiple && (
             <span className="media-modal__counter">

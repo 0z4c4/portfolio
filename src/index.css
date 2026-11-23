@@ -275,6 +275,30 @@ a:focus-visible,
   box-shadow: inset 0 1px 0 var(--glass-highlight);
 }
 
+/* Conceptos aplicados: píldoras cortas, sin frases que se recorten. */
+.concepts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.concept {
+  padding: 4px 9px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--glass);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.concept:first-child {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 .route-loader {
   min-height: 60vh;
   display: grid;

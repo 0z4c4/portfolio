@@ -108,9 +108,15 @@ export default function Projects() {
                       {project.category}
                     </span>
                     <h2 className="project-card__title">{project.title}</h2>
-                    <p className="project-card__description">
-                      {project.description}
-                    </p>
+                    {project.concepts && project.concepts.length > 0 && (
+                      <div className="concepts">
+                        {project.concepts.map((concept) => (
+                          <span className="concept" key={concept}>
+                            {concept}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                     <span className="project-card__meta">
                       {live
                         ? "Sitio en vivo"
@@ -162,6 +168,8 @@ export default function Projects() {
           initialIndex={modal.index}
           title={modal.project.title}
           category={modal.project.category}
+          description={modal.project.description}
+          concepts={modal.project.concepts}
           onClose={() => setModal(null)}
         />
       )}
