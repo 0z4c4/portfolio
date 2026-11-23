@@ -142,23 +142,6 @@ export function ArrowRightIcon(props: IconProps) {
   );
 }
 
-export function MailIcon(props: IconProps) {
-  return (
-    <Svg {...props}>
-      <rect x="3" y="5" width="18" height="14" rx="2" />
-      <path d="m3 7 9 6 9-6" />
-    </Svg>
-  );
-}
-
-export function PhoneIcon(props: IconProps) {
-  return (
-    <Svg {...props}>
-      <path d="M4 4h4l2 5-2.5 1.5a12 12 0 0 0 6 6L15 14l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-2Z" />
-    </Svg>
-  );
-}
-
 export function WhatsAppIcon(props: IconProps) {
   return (
     <Svg {...props}>
@@ -176,42 +159,12 @@ export function GithubIcon(props: IconProps) {
   );
 }
 
-export function InstagramIcon(props: IconProps) {
-  return (
-    <Svg {...props}>
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none" />
-    </Svg>
-  );
-}
-
 export function LinkedinIcon(props: IconProps) {
   return (
     <Svg {...props}>
       <path d="M4 8v12" />
       <rect x="4" y="4" width="4" height="4" rx="2" />
       <path d="M12 20v-7m0 0a5 5 0 0 1 8 0v7" />
-    </Svg>
-  );
-}
-
-export function ZoomIcon(props: IconProps) {
-  return (
-    <Svg {...props}>
-      <circle cx="11" cy="11" r="7" />
-      <path d="m21 21-4.3-4.3" />
-      <path d="M8 11h6" />
-      <path d="M11 8v6" />
-    </Svg>
-  );
-}
-
-export function PlayIcon(props: IconProps) {
-  return (
-    <Svg {...props}>
-      <circle cx="12" cy="12" r="9" />
-      <path d="m10 8 6 4-6 4V8Z" fill="currentColor" stroke="none" />
     </Svg>
   );
 }

@@ -40,8 +40,7 @@ src/
 │   ├── LogoMarquee.tsx     # 7-brand marquee (used on /proyectos)
 │   ├── LogoMarquee.css
 │   ├── Icons.tsx           # SVG icon components (incl. Sun/Moon)
-│   ├── ScrollToTop.tsx     # Scroll to top on route change
-│   └── PageTransition.tsx  # Page fade transition wrapper
+│   └── ScrollToTop.tsx     # Scroll to top on route change
 ├── pages/
 │   ├── Home.tsx            # Hero + Áreas (01) only
 │   ├── Proyectos.tsx       # LogoMarquee + Projects (lazy-loaded)
@@ -147,5 +146,6 @@ React + Router + Home only. Unknown paths fall back to Home.
 - After `pnpm run deploy`, GitHub Pages can take a couple of minutes to pick up
   the new `gh-pages` commit; browsers may keep the old HTML for up to 10 minutes
   (`Cache-Control: max-age=600`). Hard-refresh if assets look stale.
-- `.gitignore`: excludes `node_modules`, `dist`, `_originals/` and `public/certificados/tmp/`
+- `.gitignore`: excludes `node_modules`, `dist` and `_originals/`. The original
+  photos are kept locally in `_originals/` and are never committed or deployed.
 - Git history: single clean commit (force pushed) before content import

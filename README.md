@@ -31,7 +31,7 @@ El botón **Contacto** de la navbar abre WhatsApp; no hay ruta de contacto.
 - React 19.3.1, TypeScript 7.0.2, Vite 8.3.8
 - pnpm 12.22.0 (`packageManager` fijado en `package.json`)
 - React Router 7 con `BrowserRouter basename="/portfolio"`
-- React Compiler vía `@rolldown/plugin-babel`
+- Build simple: Vite + `@vitejs/plugin-react` (sin React Compiler)
 
 ## Scripts
 

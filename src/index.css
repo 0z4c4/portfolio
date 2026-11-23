@@ -266,17 +266,6 @@ a:focus-visible,
   color: var(--accent);
 }
 
-.btn--text {
-  min-height: 0;
-  padding: 0;
-  background: none;
-  color: var(--accent);
-}
-
-.btn--text:hover {
-  color: var(--accent-hover);
-}
-
 .glass {
   background: var(--glass);
   border: 1px solid var(--border);
@@ -284,11 +273,6 @@ a:focus-visible,
   -webkit-backdrop-filter: blur(16px) saturate(140%);
   /* Sin sombra exterior: solo un brillo interno de 1px para marcar el borde. */
   box-shadow: inset 0 1px 0 var(--glass-highlight);
-}
-
-.hairline {
-  height: 1px;
-  background: linear-gradient(90deg, var(--accent), transparent);
 }
 
 .route-loader {
@@ -305,10 +289,6 @@ a:focus-visible,
 @media (max-width: 640px) {
   .container {
     width: min(var(--container), 100% - 32px);
-  }
-
-  .section {
-    padding-block: 50px;
   }
 }
 

@@ -9,9 +9,7 @@ lerna-debug.log*
 
 node_modules
 dist
-dist-ssr
 *.local
-.certificados-src
 _originals/
 
 # Editor directories and files
@@ -24,4 +22,3 @@ _originals/
 *.njsproj
 *.sln
 *.sw?
-public/certificados/tmp

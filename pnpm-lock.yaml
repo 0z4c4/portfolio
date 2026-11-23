@@ -175,9 +175,6 @@ importers:
 
   .:
     dependencies:
-      gh-pages:
-        specifier: ^6.3.0
-        version: 6.3.0
       react:
         specifier: ^19.3.1
         version: 19.3.1
@@ -188,15 +185,6 @@ importers:
         specifier: ^7.18.6
         version: 7.18.6(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
     devDependencies:
-      '@babel/core':
-        specifier: ^8.1.2
-        version: 8.1.2
-      '@rolldown/plugin-babel':
-        specifier: ^0.3.1
-        version: 0.3.1(@babel/core@8.1.2)(rolldown@1.2.19)(vite@8.3.8(@types/node@26.6.6))
-      '@types/node':
-        specifier: ^26.6.6
-        version: 26.6.6
       '@types/react':
         specifier: ^19.3.0
         version: 19.3.0
@@ -206,9 +194,9 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^6.3.0
         version: 6.3.0(@rolldown/plugin-babel@0.3.1(@babel/core@8.1.2)(rolldown@1.2.19)(vite@8.3.8(@types/node@26.6.6)))(babel-plugin-react-compiler@1.0.0)(vite@8.3.8(@types/node@26.6.6))
-      babel-plugin-react-compiler:
-        specifier: ^1.0.0
-        version: 1.0.0
+      gh-pages:
+        specifier: ^6.3.0
+        version: 6.3.0
       typescript:
         specifier: ^7.0.2
         version: 7.0.2
@@ -1077,8 +1065,10 @@ snapshots:
     dependencies:
       '@babel/helper-validator-identifier': 8.0.6
       js-tokens: 10.0.0
+    optional: true
 
-  '@babel/compat-data@8.1.2': {}
+  '@babel/compat-data@8.1.2':
+    optional: true
 
   '@babel/core@8.1.2':
     dependencies:
@@ -1098,6 +1088,7 @@ snapshots:
       json5: 2.2.3
       obug: 3.0.0
       verkit: 0.5.0
+    optional: true
 
   '@babel/generator@8.1.2':
     dependencies:
@@ -1107,6 +1098,7 @@ snapshots:
       '@jridgewell/trace-mapping': 0.3.31
       '@types/jsesc': 2.5.1
       jsesc: 3.1.0
+    optional: true
 
   '@babel/helper-compilation-targets@8.0.7':
     dependencies:
@@ -1115,33 +1107,43 @@ snapshots:
       browserslist: 4.29.6
       flru: 1.0.2
       verkit: 0.5.0
+    optional: true
 
-  '@babel/helper-globals@8.0.6': {}
+  '@babel/helper-globals@8.0.6':
+    optional: true
 
-  '@babel/helper-string-parser@7.29.14': {}
+  '@babel/helper-string-parser@7.29.14':
+    optional: true
 
-  '@babel/helper-string-parser@8.1.2': {}
+  '@babel/helper-string-parser@8.1.2':
+    optional: true
 
-  '@babel/helper-validator-identifier@7.29.7': {}
+  '@babel/helper-validator-identifier@7.29.7':
+    optional: true
 
-  '@babel/helper-validator-identifier@8.0.6': {}
+  '@babel/helper-validator-identifier@8.0.6':
+    optional: true
 
-  '@babel/helper-validator-option@8.0.0': {}
+  '@babel/helper-validator-option@8.0.0':
+    optional: true
 
   '@babel/helpers@8.1.2':
     dependencies:
       '@babel/template': 8.1.2
       '@babel/types': 8.1.2
+    optional: true
 
   '@babel/parser@8.1.2':
     dependencies:
       '@babel/types': 8.1.2
+    optional: true
 
   '@babel/template@8.1.2':
     dependencies:
       '@babel/code-frame': 8.0.6
       '@babel/parser': 8.1.2
       '@babel/types': 8.1.2
+    optional: true
 
   '@babel/traverse@8.1.2':
     dependencies:
@@ -1152,16 +1154,19 @@ snapshots:
       '@babel/template': 8.1.2
       '@babel/types': 8.1.2
       obug: 3.0.0
+    optional: true
 
   '@babel/types@7.29.14':
     dependencies:
       '@babel/helper-string-parser': 7.29.14
       '@babel/helper-validator-identifier': 7.29.7
+    optional: true
 
   '@babel/types@8.1.2':
     dependencies:
       '@babel/helper-string-parser': 8.1.2
       '@babel/helper-validator-identifier': 8.0.6
+    optional: true
 
   '@emnapi/core@2.0.0-beta.2':
     dependencies:
@@ -1183,15 +1188,19 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.6.0
       '@jridgewell/trace-mapping': 0.3.31
+    optional: true
 
-  '@jridgewell/resolve-uri@3.1.3': {}
+  '@jridgewell/resolve-uri@3.1.3':
+    optional: true
 
-  '@jridgewell/sourcemap-codec@1.6.0': {}
+  '@jridgewell/sourcemap-codec@1.6.0':
+    optional: true
 
   '@jridgewell/trace-mapping@0.3.31':
     dependencies:
       '@jridgewell/resolve-uri': 3.1.3
       '@jridgewell/sourcemap-codec': 1.6.0
+    optional: true
 
   '@napi-rs/wasm-runtime@1.2.6(@emnapi/core@2.0.0-beta.2)(@emnapi/runtime@2.0.0-beta.2)':
     dependencies:
@@ -1274,6 +1283,7 @@ snapshots:
       rolldown: 1.2.19
     optionalDependencies:
       vite: 8.3.8(@types/node@26.6.6)
+    optional: true
 
   '@rolldown/pluginutils@1.1.1': {}
 
@@ -1282,13 +1292,16 @@ snapshots:
       tslib: 2.9.1
     optional: true
 
-  '@types/gensync@1.0.5': {}
+  '@types/gensync@1.0.5':
+    optional: true
 
-  '@types/jsesc@2.5.1': {}
+  '@types/jsesc@2.5.1':
+    optional: true
 
   '@types/node@26.6.6':
     dependencies:
       undici-types: 8.9.0
+    optional: true
 
   '@types/react-dom@19.3.0(@types/react@19.3.0)':
     dependencies:
@@ -1368,15 +1381,18 @@ snapshots:
 
   array-union@2.1.0: {}
 
-  artichokie@0.4.5: {}
+  artichokie@0.4.5:
+    optional: true
 
   async@3.2.6: {}
 
   babel-plugin-react-compiler@1.0.0:
     dependencies:
       '@babel/types': 7.29.14
+    optional: true
 
-  baseline-browser-mapping@2.11.39: {}
+  baseline-browser-mapping@2.11.39:
+    optional: true
 
   braces@3.0.3:
     dependencies:
@@ -1389,14 +1405,17 @@ snapshots:
       electron-to-chromium: 1.5.492
       node-releases: 2.0.65
       update-browserslist-db: 1.4.0(browserslist@4.29.6)
+    optional: true
 
-  caniuse-lite@1.0.30001826: {}
+  caniuse-lite@1.0.30001826:
+    optional: true
 
   commander@13.1.0: {}
 
   commondir@1.0.1: {}
 
-  convert-source-map@2.0.0: {}
+  convert-source-map@2.0.0:
+    optional: true
 
   cookie@1.1.1: {}
 
@@ -1408,13 +1427,16 @@ snapshots:
     dependencies:
       path-type: 4.0.0
 
-  electron-to-chromium@1.5.492: {}
+  electron-to-chromium@1.5.492:
+    optional: true
 
   email-addresses@5.0.0: {}
 
-  empathic@2.1.0: {}
+  empathic@2.1.0:
+    optional: true
 
-  escalade@3.2.0: {}
+  escalade@3.2.0:
+    optional: true
 
   escape-string-regexp@1.0.5: {}
 
@@ -1457,7 +1479,8 @@ snapshots:
       locate-path: 5.0.0
       path-exists: 4.0.0
 
-  flru@1.0.2: {}
+  flru@1.0.2:
+    optional: true
 
   fs-extra@11.4.1:
     dependencies:
@@ -1468,7 +1491,8 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
-  gensync@1.0.0-beta.2: {}
+  gensync@1.0.0-beta.2:
+    optional: true
 
   gh-pages@6.3.0:
     dependencies:
@@ -1497,7 +1521,8 @@ snapshots:
 
   ignore@5.3.2: {}
 
-  import-meta-resolve@4.2.0: {}
+  import-meta-resolve@4.2.0:
+    optional: true
 
   is-extglob@2.1.1: {}
 
@@ -1507,11 +1532,14 @@ snapshots:
 
   is-number@7.0.0: {}
 
-  js-tokens@10.0.0: {}
+  js-tokens@10.0.0:
+    optional: true
 
-  jsesc@3.1.0: {}
+  jsesc@3.1.0:
+    optional: true
 
-  json5@2.2.3: {}
+  json5@2.2.3:
+    optional: true
 
   jsonfile@6.2.1:
     dependencies:
@@ -1585,9 +1613,11 @@ snapshots:
 
   nanoid@3.3.20: {}
 
-  node-releases@2.0.65: {}
+  node-releases@2.0.65:
+    optional: true
 
-  obug@3.0.0: {}
+  obug@3.0.0:
+    optional: true
 
   p-limit@2.3.0:
     dependencies:
@@ -1723,7 +1753,8 @@ snapshots:
       '@typescript/typescript-win32-arm64': 7.0.2
       '@typescript/typescript-win32-x64': 7.0.2
 
-  undici-types@8.9.0: {}
+  undici-types@8.9.0:
+    optional: true
 
   universalify@2.0.1: {}
 
@@ -1732,8 +1763,10 @@ snapshots:
       browserslist: 4.29.6
       escalade: 3.2.0
       picocolors: 1.1.1
+    optional: true
 
-  verkit@0.5.0: {}
+  verkit@0.5.0:
+    optional: true
 
   vite@8.3.8(@types/node@26.6.6):
     dependencies:
