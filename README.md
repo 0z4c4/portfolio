@@ -6,10 +6,25 @@ Portafolio personal construido con React 19 + TypeScript + Vite 8 + React Router
 ## Rutas
 
 - `/` — Inicio
-- `/servicios` — Áreas en las que trabajo
 - `/proyectos` — Proyectos y piezas reales
 - `/certificados` — Formación y certificaciones
-- `/sobre-mi` — Perfil
+
+Las rutas secundarias se cargan de forma diferida (`React.lazy` + `Suspense`).
+El botón **Contacto** de la navbar abre WhatsApp; no hay ruta de contacto.
+
+## Tema y estilo
+
+- Modo oscuro por defecto (gris `#0e1114`), modo claro con gris `#f3f6f7`.
+- Selector sol/luna en la navbar; la elección se guarda en `localStorage`
+  (`portfolio-theme`) y se aplica antes del primer render desde `index.html`.
+- Paleta 60/30/10: 60% fondo, 30% superficies, 10% acento cian/celeste.
+  El acento es `#22d3ee` en oscuro y `#0891b2` en claro (mismo tono, más
+  oscuro para mantener contraste sobre fondo claro).
+- Tipografías: Space Grotesk (títulos), Inter (cuerpo) y JetBrains Mono (etiquetas).
+- Glassmorphism sutil: blur + borde semitransparente en navbar, hero y tarjetas.
+- Animaciones mínimas: un único `fade-in` de opacidad con `ease` para entradas
+  (scroll, navbar y modales) y el marquee lento. Todo respeta
+  `prefers-reduced-motion`.
 
 ## Stack
 
@@ -31,10 +46,11 @@ pnpm deploy     # publicar en GitHub Pages (rama gh-pages)
 
 ## Contenido
 
+- Inicio deliberadamente corto: hero + las 6 áreas de trabajo (sección 01).
 - 9 proyectos con imágenes WebP y videos WebM de muestra (`src/data/projects.ts`).
 - 16 certificados en WebP (`src/data/certificates.ts`).
-- 7 marcas en el marquee de inicio (`src/data/logos.ts`).
-- Modal de proyectos con navegación por teclado y soporte para video.
+- 7 marcas en el marquee de la página de proyectos (`src/data/logos.ts`).
+- Modal de proyectos con navegación por teclado y selector de miniaturas.
 
 ## Optimización de medios
 

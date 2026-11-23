@@ -2,8 +2,12 @@ import { useState } from "react";
 import type { Project } from "../data/projects";
 import { projects } from "../data/projects";
 import MediaModal, { type MediaItem } from "./MediaModal";
-import { ArrowRightIcon, PlayIcon, ZoomIcon } from "./Icons";
+import { ArrowRightIcon } from "./Icons";
+import Reveal from "./Reveal";
+import LogoMarquee from "./LogoMarquee";
 import "./Projects.css";
+
+const MOSAICO_MAX = 4;
 
 function projectMedia(project: Project): MediaItem[] {
   return [
@@ -28,92 +32,96 @@ export default function Projects() {
 
   return (
     <section id="proyectos" className="projects section">
-      <div className="projects__inner container">
-        <div className="projects__header">
-          <span className="section-label">Proyectos</span>
-          <h2 className="section-title">Algunos de mis trabajos</h2>
-          <p className="section-subtitle">
-            Piezas de diseño, branding y audiovisual. Haz clic en cualquier
-            trabajo para verlo en grande.
-          </p>
-        </div>
+      <div className="container projects__intro">
+        <Reveal>
+          <header className="projects__header">
+            <span className="eyebrow">Trabajos seleccionados</span>
+            <h1 className="section-title">
+              Proyectos que ya están en marcha.
+            </h1>
+            <p className="section-subtitle">
+              Una selección de marcas, piezas y sistemas que diseñé y construí.
+              Abrí cualquiera para ver el detalle completo.
+            </p>
+          </header>
+        </Reveal>
+      </div>
 
+      <LogoMarquee />
+
+      <div className="container projects__content">
         {projects.length > 0 ? (
-          <div className="projects__list">
+          <div className="projects__grid">
             {projects.map((project, index) => {
               const media = projectMedia(project);
-              return (
-                <article
-                  key={project.id}
-                  className={
-                    index % 2 === 1
-                      ? "projects__showcase projects__showcase--reverse"
-                      : "projects__showcase"
-                  }
-                >
-                  <div className="projects__info">
-                    <span className="projects__category">
-                      {project.category}
-                    </span>
-                    <h3 className="projects__title">{project.title}</h3>
-                    <p className="projects__description">
-                      {project.description}
-                    </p>
-                  </div>
+              const shown = media.slice(0, MOSAICO_MAX);
+              const remaining = media.length - shown.length;
 
-                  <div className="projects__gallery">
-                    {media.map((item, itemIndex) => (
-                      <button
-                        key={item.src}
-                        type="button"
-                        className="projects__tile"
-                        onClick={() =>
-                          setModal({ project, index: itemIndex })
-                        }
-                        aria-label={`Ver ${project.title} · ${item.type === "video" ? "video" : "imagen"} ${itemIndex + 1}`}
+              return (
+                <Reveal key={project.id}>
+                  <button
+                    type="button"
+                    className="project-card"
+                    onClick={() => setModal({ project, index: 0 })}
+                    aria-label={`Ver galería de ${project.title}`}
+                  >
+                    <div
+                      className={`project-card__media${
+                        shown.length > 1 ? " project-card__media--mosaic" : ""
+                      }`}
+                    >
+                      <div
+                        className={`project-card__mosaic project-card__mosaic--${shown.length}`}
                       >
-                        {item.type === "video" ? (
-                          <video src={item.src} preload="metadata" muted playsInline />
-                        ) : (
-                          <img
-                            src={item.src}
-                            alt={`${project.title} · imagen ${itemIndex + 1}`}
-                            loading="lazy"
-                          />
-                        )}
-                        <span className="projects__tile-overlay">
-                          {item.type === "video" ? (
-                            <PlayIcon size={26} />
-                          ) : (
-                            <ZoomIcon size={26} />
-                          )}
-                          {item.caption && (
-                            <span className="projects__tile-caption">
-                              {item.caption}
-                            </span>
-                          )}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                </article>
+                        {shown.map((item, itemIndex) => (
+                          <div className="project-card__tile" key={item.src}>
+                            {item.type === "video" ? (
+                              <video
+                                src={item.src}
+                                preload="metadata"
+                                muted
+                                playsInline
+                              />
+                            ) : (
+                              <img src={item.src} alt="" loading="lazy" />
+                            )}
+                            {remaining > 0 && itemIndex === shown.length - 1 && (
+                              <span className="project-card__more">
+                                +{remaining}
+                              </span>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                      <span className="project-card__index">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className="project-card__view" aria-hidden="true">
+                        <ArrowRightIcon size={18} />
+                      </span>
+                    </div>
+
+                    <div className="project-card__body">
+                      <span className="project-card__category">
+                        {project.category}
+                      </span>
+                      <h2 className="project-card__title">{project.title}</h2>
+                      <p className="project-card__description">
+                        {project.description}
+                      </p>
+                      <span className="project-card__meta">
+                        {media.length} {media.length === 1 ? "pieza" : "piezas"}
+                      </span>
+                    </div>
+                  </button>
+                </Reveal>
               );
             })}
           </div>
         ) : (
           <div className="projects__empty">
-            <div className="projects__empty-icon" aria-hidden="true">
-              <ArrowRightIcon size={28} />
-            </div>
-            <h3 className="projects__empty-title">
-              Mis proyectos estarán aquí pronto
-            </h3>
-            <p className="projects__empty-text">
-              Estoy preparando una galería con trabajos de desarrollo web,
-              diseño gráfico, fotografía, producción audiovisual,
-              videovigilancia e instalaciones generales. Vuelve pronto para
-              verlos.
-            </p>
+            <h2>Próximamente más proyectos</h2>
+            <p>Estoy preparando nuevas piezas. Vuelve pronto para verlas.</p>
           </div>
         )}
       </div>

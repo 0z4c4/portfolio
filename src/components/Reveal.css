@@ -1,0 +1,16 @@
+.reveal {
+  opacity: 0;
+  transition: opacity 420ms ease;
+  will-change: opacity;
+}
+
+.reveal--in {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal--in {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,117 @@
+.areas {
+  background: var(--bg);
+}
+
+.areas__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 56px;
+}
+
+@media (min-width: 640px) {
+  .areas__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .areas__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.area-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 26px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--glass);
+  transition: transform 220ms var(--ease), border-color 220ms var(--ease);
+}
+
+/* Hairline cian que se dibuja solo al pasar el ratón. */
+.area-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--accent), transparent 55%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 220ms var(--ease);
+  pointer-events: none;
+}
+
+.area-card:hover {
+  transform: translateY(-3px);
+}
+
+.area-card:hover::before {
+  opacity: 1;
+}
+
+.area-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.area-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--accent);
+  transition: background 220ms var(--ease);
+}
+
+.area-card:hover .area-card__icon {
+  background: var(--accent-soft);
+}
+
+.area-card__num {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.area-card h3 {
+  font-size: 1.18rem;
+  font-weight: 600;
+}
+
+.area-card p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  flex: 1;
+}
+
+.area-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.area-card__tags span {
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+}

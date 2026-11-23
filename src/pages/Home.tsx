@@ -1,15 +1,11 @@
-import Hero from "../components/Hero";
-import About from "../components/About";
-import Services from "../components/Services";
-import HomePreview from "../components/HomePreview";
+import LandingHero from "../components/LandingHero";
+import Areas from "../components/Areas";
 
 export default function Home() {
   return (
     <main>
-      <Hero />
-      <Services />
-      <About />
-      <HomePreview />
+      <LandingHero />
+      <Areas />
     </main>
   );
 }

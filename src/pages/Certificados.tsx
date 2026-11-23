@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { Certificate } from "../data/certificates";
 import { certificates } from "../data/certificates";
 import { CloseIcon } from "../components/Icons";
+import Reveal from "../components/Reveal";
 import "./Certificates.css";
 
 export default function Certificados() {
@@ -22,54 +23,52 @@ export default function Certificados() {
 
   return (
     <main className="certificates section">
-      <div className="certificates__inner container">
-        <div className="certificates__header">
-          <span className="section-label">Certificados</span>
-          <h2 className="section-title">Formación y certificaciones</h2>
-          <p className="section-subtitle">
-            Cursos y certificaciones que respaldan mi trabajo en desarrollo
-            web, diseño, fotografía, audiovisual y más.
-          </p>
-        </div>
+      <div className="container">
+        <Reveal>
+          <header className="certificates__header">
+            <span className="eyebrow">Formación aplicada</span>
+            <h1 className="section-title">
+              Certificaciones que respaldan el trabajo.
+            </h1>
+            <p className="section-subtitle">
+              Credenciales en desarrollo, diseño, datos e infraestructura.
+              Evidencia de criterio técnico aplicado a cada proyecto.
+            </p>
+            <span className="certificates__count">
+              {String(certificates.length).padStart(2, "0")} credenciales
+            </span>
+          </header>
+        </Reveal>
+
         {certificates.length > 0 ? (
           <div className="certificates__grid">
             {certificates.map((certificate) => (
-              <article
-                key={certificate.id}
-                className="certificates__card"
-                onClick={() => setSelected(certificate)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") setSelected(certificate);
-                }}
-              >
-                <div className="certificates__media">
-                  <img src={certificate.image} alt={certificate.title} />
-                </div>
-                <div className="certificates__body">
-                  <span className="certificates__year">
-                    {certificate.year}
-                  </span>
-                  <h3 className="certificates__title">
-                    {certificate.title}
-                  </h3>
-                  <p className="certificates__issuer">
-                    {certificate.issuer}
-                  </p>
-                </div>
-              </article>
+              <Reveal key={certificate.id}>
+                <article
+                  className="certificates__card"
+                  onClick={() => setSelected(certificate)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") setSelected(certificate);
+                  }}
+                >
+                  <div className="certificates__media">
+                    <img src={certificate.image} alt={certificate.title} loading="lazy" />
+                  </div>
+                  <div className="certificates__body">
+                    <span className="certificates__year">{certificate.year}</span>
+                    <h2 className="certificates__title">{certificate.title}</h2>
+                    <p className="certificates__issuer">{certificate.issuer}</p>
+                  </div>
+                </article>
+              </Reveal>
             ))}
           </div>
         ) : (
           <div className="certificates__empty">
-            <h3 className="certificates__empty-title">
-              Mis certificaciones estarán aquí pronto
-            </h3>
-            <p className="certificates__empty-text">
-              Estoy recopilando los certificados de mis cursos y formaciones.
-              Vuelve pronto para verlos.
-            </p>
+            <h2>Próximamente más credenciales</h2>
+            <p>Estoy sumando nuevas certificaciones. Vuelve pronto para verlas.</p>
           </div>
         )}
       </div>
@@ -92,7 +91,7 @@ export default function Certificados() {
               aria-label="Cerrar"
               onClick={() => setSelected(null)}
             >
-              <CloseIcon size={22} />
+              <CloseIcon size={21} />
             </button>
             <img
               className="certificates__modal-image"
@@ -101,7 +100,9 @@ export default function Certificados() {
             />
             <div className="certificates__modal-caption">
               <strong>{selected.title}</strong>
-              <span>{selected.issuer} · {selected.year}</span>
+              <span>
+                {selected.issuer} · {selected.year}
+              </span>
             </div>
           </div>
         </div>

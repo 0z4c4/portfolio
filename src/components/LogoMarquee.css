@@ -1,18 +1,8 @@
 .logos {
-  padding-block: 72px;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg-muted);
+  padding-block: 20px;
+  border-block: 1px solid var(--border);
+  background: var(--bg-soft);
   overflow: hidden;
-}
-
-.logos__label {
-  text-align: center;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 40px;
 }
 
 .logos__viewport {
@@ -36,13 +26,9 @@
 .logos__track {
   display: flex;
   align-items: center;
-  gap: 64px;
+  gap: 48px;
   width: max-content;
-  animation: logos-scroll 30s linear infinite;
-}
-
-.logos:hover .logos__track {
-  animation-play-state: paused;
+  animation: logos-scroll 40s linear infinite;
 }
 
 .logos__item {
@@ -50,8 +36,8 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 160px;
-  height: 56px;
+  width: 120px;
+  height: 40px;
 }
 
 .logos__item img {
@@ -59,8 +45,8 @@
   height: 100%;
   object-fit: contain;
   filter: grayscale(1);
-  opacity: 0.55;
-  transition: filter 0.3s ease, opacity 0.3s ease;
+  opacity: 0.5;
+  transition: filter 300ms var(--ease), opacity 300ms var(--ease);
 }
 
 .logos__item img:hover {
@@ -68,15 +54,18 @@
   opacity: 1;
 }
 
-@media (prefers-color-scheme: dark) {
-  .logos__item--dark img {
-    filter: grayscale(1) invert(1);
-  }
+:root[data-theme="dark"] .logos__item--dark img {
+  filter: grayscale(1) invert(1);
+}
 
-  .logos__item--dark img:hover {
-    filter: grayscale(1) invert(1);
-    opacity: 1;
-  }
+:root[data-theme="dark"] .logos__item--dark img:hover {
+  filter: grayscale(1) invert(1);
+  opacity: 1;
+}
+
+@keyframes logos-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -84,15 +73,6 @@
     animation: none;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 40px 56px;
-  }
-}
-
-@keyframes logos-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
+    gap: 24px 40px;
   }
 }

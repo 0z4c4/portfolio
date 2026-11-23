@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   CloseIcon,
   ChevronLeftIcon,
@@ -28,6 +28,8 @@ export default function MediaModal({
   onClose,
 }: MediaModalProps) {
   const [index, setIndex] = useState(initialIndex);
+  const stripRef = useRef<HTMLDivElement | null>(null);
+  const activeThumbRef = useRef<HTMLButtonElement | null>(null);
   const item = items[index];
   const hasMultiple = items.length > 1;
 
@@ -55,6 +57,15 @@ export default function MediaModal({
     };
   }, [onClose, prev, next]);
 
+  useEffect(() => {
+    const strip = stripRef.current;
+    const thumb = activeThumbRef.current;
+    if (!strip || !thumb) return;
+    const target =
+      thumb.offsetLeft - (strip.clientWidth - thumb.clientWidth) / 2;
+    strip.scrollTo({ left: target, behavior: "smooth" });
+  }, [index]);
+
   return (
     <div
       className="media-modal"
@@ -64,7 +75,9 @@ export default function MediaModal({
       onClick={onClose}
     >
       <div
-        className="media-modal__content"
+        className={`media-modal__content${
+          hasMultiple ? " media-modal__content--multi" : ""
+        }`}
         onClick={(event) => event.stopPropagation()}
       >
         <button
@@ -113,6 +126,39 @@ export default function MediaModal({
             >
               <ChevronRightIcon size={26} />
             </button>
+
+            <div
+              className="media-modal__thumbs"
+              ref={stripRef}
+              role="tablist"
+              aria-label={`Piezas de ${title}`}
+            >
+              {items.map((thumbItem, itemIndex) => (
+                <button
+                  key={thumbItem.src}
+                  ref={itemIndex === index ? activeThumbRef : undefined}
+                  type="button"
+                  role="tab"
+                  aria-selected={itemIndex === index}
+                  aria-label={`Pieza ${itemIndex + 1}${
+                    thumbItem.caption ? `: ${thumbItem.caption}` : ""
+                  }`}
+                  className={`media-modal__thumb${
+                    itemIndex === index ? " media-modal__thumb--active" : ""
+                  }`}
+                  onClick={() => setIndex(itemIndex)}
+                >
+                  {thumbItem.type === "video" ? (
+                    <video src={thumbItem.src} preload="metadata" muted playsInline />
+                  ) : (
+                    <img src={thumbItem.src} alt="" loading="lazy" />
+                  )}
+                  <span className="media-modal__thumb-index">
+                    {itemIndex + 1}
+                  </span>
+                </button>
+              ))}
+            </div>
           </>
         )}
 

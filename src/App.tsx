@@ -1,15 +1,15 @@
+import { lazy, Suspense, useEffect, useState } from "react";
+import type { ReactNode } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
-import Services from "./pages/Services";
-import Proyectos from "./pages/Proyectos";
-import Certificados from "./pages/Certificados";
-import SobreMi from "./pages/SobreMi";
 
-function FadeRoute({ children }: { children: React.ReactNode }) {
+const Proyectos = lazy(() => import("./pages/Proyectos"));
+const Certificados = lazy(() => import("./pages/Certificados"));
+
+function FadeRoute({ children }: { children: ReactNode }) {
   const { pathname } = useLocation();
   const [visible, setVisible] = useState(false);
 
@@ -34,14 +34,14 @@ export default function App() {
       <ScrollToTop />
       <Navbar />
       <FadeRoute>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/servicios" element={<Services />} />
-          <Route path="/proyectos" element={<Proyectos />} />
-          <Route path="/certificados" element={<Certificados />} />
-          <Route path="/sobre-mi" element={<SobreMi />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
+        <Suspense fallback={<div className="route-loader">Cargando…</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/proyectos" element={<Proyectos />} />
+            <Route path="/certificados" element={<Certificados />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </Suspense>
       </FadeRoute>
       <Footer />
     </>

@@ -8,11 +8,6 @@ export default function LogoMarquee() {
 
   return (
     <section className="logos">
-      <div className="container">
-        <p className="logos__label">
-          Marcas y empresas con las que he trabajado
-        </p>
-      </div>
       <div className="logos__viewport">
         <div className="logos__track">
           {repeated.map((logo, index) => (
