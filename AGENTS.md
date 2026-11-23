@@ -33,7 +33,7 @@ src/
 │   ├── Areas.css
 │   ├── Reveal.tsx          # IntersectionObserver opacity-only fade wrapper
 │   ├── Reveal.css
-│   ├── Projects.tsx        # 9-project mosaic/photo grid + MediaModal
+│   ├── Projects.tsx        # 10-project mosaic + MediaModal / external links
 │   ├── Projects.css
 │   ├── MediaModal.tsx      # Image/video modal with keyboard nav + thumbnails
 │   ├── MediaModal.css
@@ -47,7 +47,7 @@ src/
 │   └── Certificados.tsx    # Certificate grid + modal (lazy-loaded)
 ├── data/
 │   ├── certificates.ts     # 16 certificate entries (WebP paths)
-│   ├── projects.ts         # 9 projects (images, videos, captions)
+│   ├── projects.ts         # 10 projects (images, videos, captions, url)
 │   ├── logos.ts            # 7 marquee logos
 │   └── contact.ts          # WhatsApp URL
 ├── index.css               # Tokens, 60/30/10 palette, motion keyframes
@@ -64,7 +64,7 @@ component and `data/services.ts`. The Home also dropped the extra sections
 | Path | Page | Description |
 |------|------|-------------|
 | `/` | Home | Hero + Áreas (01) |
-| `/proyectos` | Proyectos | Header + marquee + 9-project mosaic |
+| `/proyectos` | Proyectos | Header + marquee + 10-project mosaic |
 | `/certificados` | Certificados | 16 certificates with image modal |
 
 `App.tsx` uses `React.lazy` for Proyectos and Certificados; the initial chunk is
@@ -107,7 +107,9 @@ React + Router + Home only. Unknown paths fall back to Home.
 ## Key Features
 - **Single CTA**: WhatsApp in the hero and in the navbar contact link.
 - **6 work areas**: benefit-first copy, no résumé-style stack dump.
-- **Projects**: all 9 live on `/proyectos`; the Home stays intentionally short.
+- **Projects**: all 10 live on `/proyectos`; the Home stays intentionally short.
+  Projects with `url` (e.g. Donde Juanita) open the live site in a new tab
+  instead of the media modal.
 - **Project modal**: images/videos with arrow-key nav, Esc and a thumbnail strip
   to jump directly to any piece (active thumb auto-centers). The stage has no
   border or background; the `<img>`/`<video>` keeps its own ratio via
@@ -131,7 +133,10 @@ React + Router + Home only. Unknown paths fall back to Home.
   as "currently empty" in the old portfolio. It is not public anymore:
   `embeddedfolderview` returns 401 and `gdown --json --no-cookies` returns
   nothing. All current project assets are local.
-- Data file: `src/data/projects.ts` (9 projects)
+- Data file: `src/data/projects.ts` (10 projects)
+- Donde Juanita: raw desktop/mobile screenshots and the cover source live in
+  `_originals/proyectos/dondejuanita/`; only `caratula.webp` is served from
+  `public/proyectos/dondejuanita/`.
 - Structure: `Project > images[] / videos[] / captions{}`
 - Note: asset URLs are absolute (`/portfolio/...`); Vite does not rewrite them
 

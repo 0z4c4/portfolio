@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { Project } from "../data/projects";
 import { projects } from "../data/projects";
 import MediaModal, { type MediaItem } from "./MediaModal";
-import { ArrowRightIcon } from "./Icons";
+import { ArrowRightIcon, ExternalLinkIcon } from "./Icons";
 import Reveal from "./Reveal";
 import LogoMarquee from "./LogoMarquee";
 import "./Projects.css";
@@ -56,64 +56,94 @@ export default function Projects() {
               const media = projectMedia(project);
               const shown = media.slice(0, MOSAICO_MAX);
               const remaining = media.length - shown.length;
+              const live = Boolean(project.url);
+
+              const card = (
+                <>
+                  <div
+                    className={`project-card__media${
+                      shown.length > 1 ? " project-card__media--mosaic" : ""
+                    }`}
+                  >
+                    <div
+                      className={`project-card__mosaic project-card__mosaic--${shown.length}`}
+                    >
+                      {shown.map((item, itemIndex) => (
+                        <div className="project-card__tile" key={item.src}>
+                          {item.type === "video" ? (
+                            <video
+                              src={item.src}
+                              preload="metadata"
+                              muted
+                              playsInline
+                            />
+                          ) : (
+                            <img src={item.src} alt="" loading="lazy" />
+                          )}
+                          {remaining > 0 && itemIndex === shown.length - 1 && (
+                            <span className="project-card__more">
+                              +{remaining}
+                            </span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                    <span className="project-card__index">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    {live && (
+                      <span className="project-card__live">En vivo</span>
+                    )}
+                    <span className="project-card__view" aria-hidden="true">
+                      {live ? (
+                        <ExternalLinkIcon size={18} />
+                      ) : (
+                        <ArrowRightIcon size={18} />
+                      )}
+                    </span>
+                  </div>
+
+                  <div className="project-card__body">
+                    <span className="project-card__category">
+                      {project.category}
+                    </span>
+                    <h2 className="project-card__title">{project.title}</h2>
+                    <p className="project-card__description">
+                      {project.description}
+                    </p>
+                    <span className="project-card__meta">
+                      {live
+                        ? "Sitio en vivo"
+                        : `${media.length} ${
+                            media.length === 1 ? "pieza" : "piezas"
+                          }`}
+                    </span>
+                  </div>
+                </>
+              );
 
               return (
                 <Reveal key={project.id}>
-                  <button
-                    type="button"
-                    className="project-card"
-                    onClick={() => setModal({ project, index: 0 })}
-                    aria-label={`Ver galería de ${project.title}`}
-                  >
-                    <div
-                      className={`project-card__media${
-                        shown.length > 1 ? " project-card__media--mosaic" : ""
-                      }`}
+                  {live ? (
+                    <a
+                      className="project-card project-card--external"
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Abrir sitio de ${project.title}`}
                     >
-                      <div
-                        className={`project-card__mosaic project-card__mosaic--${shown.length}`}
-                      >
-                        {shown.map((item, itemIndex) => (
-                          <div className="project-card__tile" key={item.src}>
-                            {item.type === "video" ? (
-                              <video
-                                src={item.src}
-                                preload="metadata"
-                                muted
-                                playsInline
-                              />
-                            ) : (
-                              <img src={item.src} alt="" loading="lazy" />
-                            )}
-                            {remaining > 0 && itemIndex === shown.length - 1 && (
-                              <span className="project-card__more">
-                                +{remaining}
-                              </span>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                      <span className="project-card__index">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <span className="project-card__view" aria-hidden="true">
-                        <ArrowRightIcon size={18} />
-                      </span>
-                    </div>
-
-                    <div className="project-card__body">
-                      <span className="project-card__category">
-                        {project.category}
-                      </span>
-                      <h2 className="project-card__title">{project.title}</h2>
-                      <p className="project-card__description">
-                        {project.description}
-                      </p>
-                      <span className="project-card__meta">
-                        {media.length} {media.length === 1 ? "pieza" : "piezas"}
-                      </span>
-                    </div>
-                  </button>
+                      {card}
+                    </a>
+                  ) : (
+                    <button
+                      type="button"
+                      className="project-card"
+                      onClick={() => setModal({ project, index: 0 })}
+                      aria-label={`Ver galería de ${project.title}`}
+                    >
+                      {card}
+                    </button>
+                  )}
                 </Reveal>
               );
             })}

@@ -159,6 +159,21 @@
   font-size: 0.68rem;
 }
 
+.project-card__live {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 3px 9px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-pill);
+  background: var(--glass-strong);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 .project-card__view {
   position: absolute;
   right: 12px;

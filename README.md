@@ -47,7 +47,9 @@ pnpm deploy     # publicar en GitHub Pages (rama gh-pages)
 ## Contenido
 
 - Inicio deliberadamente corto: hero + las 6 áreas de trabajo (sección 01).
-- 9 proyectos con imágenes WebP y videos WebM de muestra (`src/data/projects.ts`).
+- 10 proyectos con imágenes WebP y videos WebM de muestra (`src/data/projects.ts`).
+  Donde Juanita abre su sitio en vivo; su carátula combina capturas de escritorio
+  y móvil guardadas en `_originals/proyectos/dondejuanita/`.
 - 16 certificados en WebP (`src/data/certificates.ts`).
 - 7 marcas en el marquee de la página de proyectos (`src/data/logos.ts`).
 - Modal de proyectos con navegación por teclado y selector de miniaturas.

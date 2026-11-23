@@ -7,10 +7,20 @@ export interface Project {
   videos?: string[];
   audio?: string;
   pdf?: string;
+  url?: string;
   captions?: Record<string, string>;
 }
 
 export const projects: Project[] = [
+  {
+    id: "donde-juanita",
+    title: "Donde Juanita",
+    category: "Sitio web y administración",
+    description:
+      "Diseñé y administro el sitio de Donde Juanita, cafetería temática en Santa Cruz de la Sierra: diseño, contenidos y actualización permanente.",
+    images: ["/portfolio/proyectos/dondejuanita/caratula.webp"],
+    url: "https://www.dondejuanita.com/",
+  },
   {
     id: "caju",
     title: "Cajú",
